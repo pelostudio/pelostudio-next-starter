@@ -1,3 +1,5 @@
+import './storybook.scss';
+import 'normalize.css';
 import '@/styles/globals.scss';
 
 import {addDecorator} from '@storybook/react';
@@ -14,5 +16,5 @@ addDecorator(
 );
 
 export const parameters = {
-  actions: {argTypesRegex: '^on[A-Z].*'},
+  actions: {argTypesRegex: '^on[A-Z].*', layout: 'fullscreen'},
 };

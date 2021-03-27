@@ -1,0 +1,90 @@
+@function px2rem($px) {
+  @return $px / 16 * 1rem;
+}
+
+@function isValidSpacing($spacing) {
+  $list: (0.5, 1.5, 1, 2, 3, 4, 5, 6, 8, 13);
+
+  @return (null != index($list, $spacing));
+}
+
+@function getSpacing($size) {
+  @if (isValidSpacing($size)) {
+    @return px2rem($size * 8);
+  } @else {
+    @error '$size is invalid';
+  }
+}
+
+$colors: (
+  'black': #000,
+  'white': #FFF,
+  'grey-500': #454545,
+  'grey-400': #B0B0B0,
+  'grey-300': #DCDCDC,
+  'grey-200': #F1F1F1,
+  'grey-100': #F9F9F9,
+);
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}
+
+$shadows: (
+  'medium': -2px 2px 8px rgba(58, 58, 58, 0.05),
+  'soft': -2px 2px 4px rgba(58, 58, 58, 0.02),
+);
+
+@function getShadow($key) {
+  @return map-get($shadows, $key);
+}
+
+$border-radius: 2px;
+$border-radius--large: 4px;
+$border--default: 1px solid getColor('grey-200');
+$border--active: 1px solid getColor('black');
+$border--error: 1px solid getColor('red');
+
+$font-family--primary: 'Open Sans', sans-serif;
+$font-family--secondary: 'Raleway Light', sans-serif;
+
+@mixin text--heading($size) {
+  font-family: $font-family--secondary;
+  font-weight: 300;
+
+  @if ($size == '1') {
+    font-size: px2rem(36);
+    line-height: px2rem(48);
+  } @else if ($size == '2') {
+    font-size: px2rem(22);
+    line-height: px2rem(32);
+  } @else if ($size == '3') {
+    font-size: px2rem(16);
+    line-height: px2rem(24);
+  } @else {
+    @error '$size is invalid';
+  }
+}
+
+@mixin text--body($size, $weight: '') {
+  @if ($weight == 'light') {
+    font-weight: 300;
+  } @else if ($weight == 'bold') {
+    font-weight: 700;
+  } @else {
+    font-weight: 400;
+  }
+
+  @if ($size == 'large') {
+    font-size: px2rem(16);
+    line-height: px2rem(24);
+  } @else if ($size == 'medium') {
+    font-size: px2rem(14);
+    line-height: px2rem(24);
+  } @else if ($size == 'small') {
+    font-size: px2rem(12);
+    line-height: px2rem(16);
+  } @else {
+    @error '$size is invalid';
+  }
+}

@@ -1,0 +1,49 @@
+@use '@/styles/utils' as *;
+
+#root,
+.sb-show-main {
+  height: 100%;
+}
+
+.sb-show-main {
+  hr {
+    border: 1px solid getColor('grey-100');
+    margin: getSpacing(4) auto;
+  }
+
+  .color__cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .color__card {
+    width: px2rem(200);
+    height: px2rem(200);
+    border: 1px solid getColor('grey-100');
+    margin: 0 getSpacing(4) getSpacing(4);
+  }
+
+  .color__card--black { background-color: getColor('black'); }
+  .color__card--white { background-color: getColor('white'); }
+  .color__card--grey-100 { background-color: getColor('grey-100'); }
+  .color__card--grey-200 { background-color: getColor('grey-200'); }
+  .color__card--grey-300 { background-color: getColor('grey-300'); }
+  .color__card--grey-400 { background-color: getColor('grey-400'); }
+  .color__card--grey-500 { background-color: getColor('grey-500'); }
+
+  .typography__heading-1 { @include text--heading('1'); }
+  .typography__heading-2 { @include text--heading('2'); }
+  .typography__heading-3 { @include text--heading('3'); }
+
+  .typography__body--large--light { @include text--body('large', 'light'); }
+  .typography__body--large { @include text--body('large'); }
+  .typography__body--large--bold { @include text--body('large', 'bold'); }
+
+  .typography__body--medium--light { @include text--body('medium', 'light'); }
+  .typography__body--medium { @include text--body('medium'); }
+  .typography__body--medium--bold { @include text--body('medium', 'bold'); }
+
+  .typography__body--small--light { @include text--body('small', 'light'); }
+  .typography__body--small { @include text--body('small'); }
+  .typography__body--small--bold { @include text--body('small', 'bold'); }
+}

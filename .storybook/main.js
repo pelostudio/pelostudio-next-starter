@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/**/*.stories.tsx'],
+  stories: ['./design-system/*.stories.tsx', '../src/**/*.stories.tsx'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   webpackFinal: async (config, {configType}) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
