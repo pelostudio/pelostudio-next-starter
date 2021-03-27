@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run dev",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "serve": "next start",
+    "build:static": "next build && next export",
+    "serve:static": "npx serve ./out",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/public",
+    "build-storybook": "build-storybook && rsync -avz --progress .storybook/public/ ./storybook-static/",
     "generate-component": "node .generate-component $1"
   },
   "dependencies": {
