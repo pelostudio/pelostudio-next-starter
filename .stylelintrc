@@ -1,0 +1,46 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "mixin",
+          "include",
+          "use",
+          "extend",
+          "function",
+          "if",
+          "else",
+          "return",
+          "error",
+          "each"
+        ]
+      }
+    ],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": ["first-nested","inside-block"],
+        "ignoreAtRules": ["else", "use"]
+      }
+    ],
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": ["if", "else"]
+      }
+    ],
+    "declaration-empty-line-before": [
+      "never",
+      {
+        "ignore": ["after-declaration"]
+      }
+    ],
+    "value-keyword-case": "lower",
+    "function-name-case": null,
+    "color-hex-case": "upper"
+  }
+}
