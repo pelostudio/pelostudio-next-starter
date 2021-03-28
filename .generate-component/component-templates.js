@@ -5,7 +5,7 @@ exports.component = (name) => `import styles from './${name}.module.scss';
 
 export type Props = {}
 
-const ${name} = ({}: Props) => {
+const ${name} = ({}: Props): JSX.Element => {
   return <div>Hello World!</div>;
 };
 
