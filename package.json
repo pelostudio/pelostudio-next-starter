@@ -63,5 +63,8 @@
     "./**/*.{css,scss}": [
       "stylelint --fix"
     ]
-  }
+  },
+  "browserslist": [
+    "defaults, >=.1% in FR"
+  ]
 }
