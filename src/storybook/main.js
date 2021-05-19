@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['./design-system/*.stories.tsx', '../src/**/*.stories.tsx'],
+  stories: ['../**/*.stories.tsx'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   webpackFinal: async (config, {configType}) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -12,7 +12,7 @@ module.exports = {
     // Make whatever fine-grained changes you need
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, '../'),
     };
 
     config.module.rules.push({
@@ -48,7 +48,7 @@ module.exports = {
         {
           loader: 'resolve-url-loader',
           options: {
-            root: path.resolve(__dirname, '../public/'),
+            root: path.resolve(__dirname, '../../public/'),
           },
         },
         {
