@@ -26,6 +26,8 @@ pre {
 html,
 body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -69,7 +71,7 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  &:focus {
+  &:focus:not(:focus-visible) {
     border-style: none;
     outline: none;
   }
