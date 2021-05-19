@@ -4,7 +4,7 @@
 // https://levelup.gitconnected.com/how-to-generate-react-components-from-your-terminal-a27741a5b862
 
 const fs = require('fs');
-const {component, story, styles, barrel} = require('./component-templates.js');
+const {component, story, styles, barrel, type, mock} = require('./component-templates.js');
 
 // grab component name from terminal argument
 const [name] = process.argv.slice(2);
@@ -34,3 +34,11 @@ fs.writeFile(`${dir}/${name}.module.scss`, styles(), writeFileErrorHandler);
 fs.writeFile(`${dir}/${name}.stories.tsx`, story(name), writeFileErrorHandler);
 // index.tsx
 fs.writeFile(`${dir}/index.ts`, barrel(name), writeFileErrorHandler);
+// types.ts
+fs.appendFile('./src/common/types.ts', type(name), writeFileErrorHandler);
+// mocks.ts
+fs.appendFile('./src/storybook/mocks.ts', mock(name), writeFileErrorHandler);
+
+console.log(`Don't forget to:
+- Add the type in ./src/storybook/mocks.ts
+`);
