@@ -56,13 +56,8 @@ exports.barrel = (name) => `import ${name} from './${name}';
 export default ${name};
 `;
 
-exports.type = (name) => `\nexport type T${name} = TBlokShared & {
-  component: componentTypes.${name.toUpperCase()};
-};`;
+exports.type = (name) => `\nexport type T${name} = {};`;
 
 exports.mock = (name) => `\nexport const get${name} = (): T${name} => {
-  return {
-    _uid: uid(),
-    component: componentTypes.${name.toUpperCase()},
-  };
+  return {};
 };`;
