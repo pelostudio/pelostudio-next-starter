@@ -1,5 +1,7 @@
+@use 'sass:math';
+
 @function px2rem($px) {
-  @return $px / 16 * 1rem;
+  @return math.div($px, 16) * 1rem;
 }
 
 @function isValidSpacing($spacing) {
